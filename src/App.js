@@ -1,14 +1,25 @@
+import React from 'react';
 import './App.css';
 import ParentCmp from './components/parentComponent';
-import { CounterProvider } from './context/context';
 
+export const CounterContext = React.createContext();
 
 function App() {
+
+  const [counter, setCounter] = React.useState(0);
+
+  const add = () => {
+    setCounter(counter + 1);
+  }
+  const sub = () => {
+    setCounter(counter - 1);
+  }
+
   return (
     <div className="root">
-      <CounterProvider>
+      <CounterContext.Provider value={{ value: counter, increment: add, decrement: sub }}>
         <ParentCmp />
-      </CounterProvider>
+      </CounterContext.Provider>
     </div>
   );
 }

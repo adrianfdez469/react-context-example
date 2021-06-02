@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../App.css'
-import { CounterContext } from '../context/context'
+import { CounterContext } from '../App'
 
 
 const CmpB = props => {
